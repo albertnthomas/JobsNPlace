@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput name="candidateName" ngModel type="text" placeholder="Candidate Name" #nameInput="ngModel">
+      <mat-error *ngIf="nameInput.invalid">Please enter the fullname.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <input type="mobile" name="mobile" ngModel matInput placeholder="Mobile number" #passwordInput="ngModel" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Include area code</mat-hint>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-select name="experience" ngModel matInput placeholder="Total Work Experience" >
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">More than 5</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="technology" ngModel type="text" placeholder="Enter your technologies" #techInput="ngModel" required Technologies>
+      <mat-error *ngIf="techInput.invalid">Please enter atleast one technology.</mat-error>
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" colour= "grey" (click)="filePicker.click()">Upload Resume</button>
+      <input type="file" #filePicker (change)="onFilePicked($event)">
+    </div>
+    <mat-hint>doc,docx,pdf- 2MB max</mat-hint>
+    <br>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+  </form>
+</mat-card>

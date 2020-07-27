@@ -1,0 +1,34 @@
+
+<mat-toolbar class="custom-toolbar" >
+  <span>
+    <a class = "header "routerLink="/"><b>Jobs N Place</b></a>
+  </span>
+  <span>
+    <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm" placeholder="Jobs looking for?">
+         <button type="submit" class="searchButton">
+           <i class="fa fa-search"></i>
+        </button>
+      </div>
+   </div>
+  </span>
+  <span class="spacer"></span>
+  <ul >
+    <li *ngIf= "userIsAuthenticated"  >
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">Add Job</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/user" routerLinkActive="mat-accent">View Profiles</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>

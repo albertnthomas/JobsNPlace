@@ -1,0 +1,15 @@
+<mat-accordion multi="true" >
+  <mat-expansion-panel *ngFor="let profile of profile">
+    <mat-expansion-panel-header>
+      <b>Name :</b> {{ profile.candidateName }}
+      </mat-expansion-panel-header>
+    <p><b>Email :</b> {{ profile.email }}</p>
+    <p><b>Mobile Number :</b> {{ profile.mobile }} </p>
+    <p><b>Current Experience :</b>{{ profile.experience }} Years</p>
+    <p><b>Technologies :</b> {{profile.technology}}</p>
+    <mat-action-row >
+
+      <button mat-button color="primary" >SENT INVITES</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
